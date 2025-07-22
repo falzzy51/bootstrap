@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Portfolio | Gilang Naufal</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <!-- Font Awesome untuk icon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link rel="icon" type="image/x-icon" href="asssets/favicon.png" />
+    <script type="text/javascript">
+        (function (){
+            emailjs.init({
+                publicKey: "PXicdUMbvLuxsXTxO",
+            });
+        })();
+    </script>
+    <style>
+      :root {
+        --primary-color: #ddcc10;
+        --secondary-color: #6c757d;
+        --dark-color: #212529;
+        --light-color: #f8f9fa;
+      }
+
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        scroll-behavior: smooth;
+      }
+
+      .navbar {
+        transition: all 0.3s ease;
+      }
+
+      .navbar.scrolled {
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+        transition: all 0.3s ease;
+      }
+
+      .hero-section {
+        background: linear-gradient(135deg, #f5f7fa 0%, #ddcc10 100%);
+        padding: 100px 0;   
+        position: relative;
+      }
+
+      .profile-img {
+        width: 250px;
+        height: 250px;
+        object-fit: cover;
+        border-radius: 50%;
+        border: 5px solid white;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      }
+
+      .section-title {
+        position: relative;
+        display: inline-block;
+        margin-bottom: 50px;
+      }
+
+      .section-title:after {
+        content: "";
+        position: absolute;
+        width: 50px;
+        height: 3px;
+        background-color: var(--primary-color);
+        bottom: -10px;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+
+      .skill-item {
+        background-color: white;
+        border-radius: 10px;
+        padding: 20px;
+        margin-bottom: 20px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        transition: all 0.3s ease;
+      }
+
+      .skill-item:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+      }
+
+      .progress {
+        height: 10px;
+        border-radius: 5px;
+      }
+
+      .portfolio-item {
+        position: relative;
+        overflow: hidden;
+        border-radius: 10px;
+        margin-bottom: 30px;
+      }
+
+      .portfolio-img {
+        width: 100%;
+        height: 250px;
+        object-fit: cover;
+        transition: all 0.3s ease;
+      }
+
+      .portfolio-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.7);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 0;
+        transition: all 0.3s ease;
+      }
+
+      .portfolio-item:hover .portfolio-overlay {
+        opacity: 1;
+      }
+
+      .portfolio-item:hover .portfolio-img {
+        transform: scale(1.1);
+      }
+
+      .contact-info {
+        padding: 20px;
+        background-color: white;
+        border-radius: 10px;
+        margin-bottom: 20px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+      }
+
+      .nav-link:hover span {
+        width: 100% !important;
+        background-color: #fff !important;
+      }
+
+      footer {
+        background-color: var(--dark-color);
+        padding: 30px 0;
+      }
+    </style>
+  </head>
+  <body data-bs-spy="scroll" data-bs-target=".navbar">
+    <!-- Navbar -->
+    <nav
+      class="navbar navbar-expand-lg fixed-top"
+      style="
+        color: black;
+        background: rgba(255, 255, 255, 0.05);
+        backdrop-filter: blur(7px);
+        -webkit-backdrop-filter: blur(7px);
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1), inset 0 -1px 0 rgba(255, 255, 255, 0.1), inset 0 0 0px 0px rgba(255, 255, 255, 0);
+      "
+    >
+      <div class="container">
+        <a class="navbar-brand" href="#">Gilang Naufal</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link position-relative" href="#home">
+                Home
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#about">About Me</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#portfolio">My Project</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#contact">Contact Me</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/asssets/cv.pdf">Download CV</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-section">
+      <div class="container text-center">
+        <div class="row align-items-center">
+          <div class="col-md-6">
+            <h1 class="display-4 fw-bold mb-4">Hai, Saya <span style="color: #c0b00099;">Gilang Naufal</span></h1>
+            <p class="lead mb-4">Welcome to my frontend developer portfolio! a beginner and creative web developer with a passion for creating beautiful, responsive, and user-friendly websites.</p>
+          </div>
+          <div class="col-md-6">
+            <img
+              src="asssets/foto.jpg"
+              class="profile-img img-fluid"
+              alt="Foto profesional developer dengan latar belakang modern"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-5 bg-light">
+      <div class="container">
+        <h2 class="text-center section-title">About Me</h2>
+        <div class="row">
+          <div class="col-lg-6">
+            <h3 class="mb-4">My Profile</h3>
+            <p>Welcome to my frontend developer portfolio! a beginner and creative web developer with a passion for creating beautiful, responsive, and user-friendly websites.</p>
+            <p>
+              I am a dedicated speedcuber from Indonesia who enjoys solving twisty puzzles with precision and speed. My main events are 3x3 and 2x2, with a personal best of 13.12. I solve not just for competition, but for the joy of
+              progress, flow, and that satisfying final turn. I am currently learning look ahead and full PLL.
+            </p>
+            <div class="row mt-4">
+              <div class="col-md-6">
+                <div class="d-flex align-items-center mb-3">
+                  <i class="fas fa-user-tie fa-lg me-3" style="color: #ddcc10;"></i>
+                  <div>
+                    <h6 class="mb-0">Name</h6>
+                    <small>Gilang Muhammad Naufal</small>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="d-flex align-items-center mb-3">
+                  <i class="fas fa-map-marker-alt fa-lg me-3" style="color: #ddcc10;"></i>
+                  <div>
+                    <h6 class="mb-0">Location</h6>
+                    <small>Salatiga, Indonesia</small>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <h3 class="mb-4">Experience</h3>
+            <div class="timeline">
+              <div class="timeline-item mb-4">
+                <h5>Senior Web Developer</h5>
+                <p class="text-muted mb-1">Perusahaan Teknologi Terkemuka | 2021 - Sekarang</p>
+                <p>Memimpin tim pengembangan front-end untuk aplikasi web perusahaan dengan 10.000+ pengguna aktif.</p>
+              </div>
+              <div class="timeline-item mb-4">
+                <h5>Web Developer</h5>
+                <p class="text-muted mb-1">Startup Digital | 2019 - 2021</p>
+                <p>Mengembangkan aplikasi web dari nol menggunakan React.js dan Node.js untuk solusi e-commerce.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="py-5 bg-light">
+      <div class="container">
+        <h2 class="text-center section-title">My Projects</h2>
+        <div class="text-center mb-5">
+          <div class="btn-group" role="group">
+          </div>
+        </div>
+        <div class="row portfolio-container">
+          <div class="col-md-6 col-lg-4 portfolio-item" data-category="web">
+            <img src="asssets/1.png" class="portfolio-img" alt="Dashboard admin modern dengan grafik dan metrik utama" />
+            <div class="portfolio-overlay">
+              <div class="text-center text-white">
+                <h4>Cek Cuaca</h4>
+                <p>Menyediakan informasi cuaca secara real-time berdasarkan lokasi pengguna menggunakan API dari AccuWeather.</p>
+                <a href="https://cekcuaca-nu.vercel.app/" class="btn btn-outline-light" target="_blank">Lihat Detail</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4 portfolio-item" data-category="app">
+            <img src="asssets/2.png " class="portfolio-img" alt="Aplikasi mobile e-commerce dengan tampilan produk" />
+            <div class="portfolio-overlay">
+              <div class="text-center text-white">
+                <h4>Website Portfolio</h4>
+                <p>Menggunakan HTML, CSS dan Javascript dengan animasi yang fluid dan bisa dibuka di berbagai device.</p>
+                <a href="https://falzzyfloxks.web.id/" class="btn btn-outline-light" target="_blank">Lihat Detail</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4 portfolio-item" data-category="web">
+            <img
+              src="asssets/3.png"
+              class="portfolio-img"
+              alt="Website perusahaan dengan desain modern dan navigasi responsif"
+            />
+            <div class="portfolio-overlay">
+              <div class="text-center text-white">
+                <h4>Selisih Tanggal</h4>
+                <p>Menghitung selisih antara 2 tanggal dengan mudah untuk berbagai keperluan.</p>
+                <a href="https://selisih-tanggal-jk2a.vercel.app/" class="btn btn-outline-light" target="_blank">Lihat Detail</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-5">
+      <div class="container">
+        <h2 class="text-center section-title">Contact Me</h2>
+          <div class="col-lg-7">
+            <div class="card">
+              <div class="card-body">
+                <h4 class="card-title mb-4">Kirim Pesan</h4>
+                <form>
+                  <div class="row">
+                    <div class="col-md-6 mb-3">
+                      <input type="text" class="form-control" id="name" placeholder="Nama Anda" required />
+                    </div>
+                    <div class="col-md-6 mb-3">
+                      <input type="email" class="form-control" id="email" placeholder="Email Anda" required />
+                    </div>
+                  </div>
+                  <div class="mb-3">
+                    <textarea class="form-control" rows="5" id="pesan" placeholder="Pesan Anda" required></textarea>
+                  </div>
+                  <button type="submit" onclick="sendMail()" class="btn" style="background-color: #ddcc10;">Send Message</button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="text-white text-center">
+      <div class="container">
+        <div class="mb-3">
+          <a href="#" class="text-white me-3"><i class="fab fa-linkedin-in fa-lg"></i></a>
+          <a href="#" class="text-white me-3"><i class="fab fa-github fa-lg"></i></a>
+          <a href="#" class="text-white me-3"><i class="fab fa-instagram fa-lg"></i></a>
+          <a href="#" class="text-white"><i class="fab fa-twitter fa-lg"></i></a>
+        </div>
+        <p class="mb-0">© 2023 Portfolio Profesional. Hak Cipta Dilindungi.</p>
+      </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+      function sendMail(){
+            var params = {
+                name: document.getElementById("name").value,
+                email: document.getElementById("email").value,
+                pesan: document.getElementById("pesan").value
+            };
+
+            const serviceID = "service_774k2rt";
+            const templateID = "template_etcuh2e";
+
+            emailjs.send(serviceID, templateID, params).then((res) => {
+                document.getElementById("name").value = "";
+                document.getElementById("email").value = "";
+                document.getElementById("pesan").value = "";
+                console.log(res);
+                alert("your message send successfully");
+            });
+      }
+
+      // Navbar scroll effect
+      window.addEventListener("scroll", function () {
+        const navbar = document.querySelector(".navbar");
+        if (window.scrollY > 50) {
+          navbar.classList.add("scrolled");
+        } else {
+          navbar.classList.remove("scrolled");
+        }
+      });
+
+      // Portfolio filtering
+      document.addEventListener("DOMContentLoaded", function () {
+        const filterButtons = document.querySelectorAll("[data-filter]");
+        const portfolioItems = document.querySelectorAll(".portfolio-item");
+
+        filterButtons.forEach((button) => {
+          button.addEventListener("click", function () {
+            // Update active button
+            filterButtons.forEach((btn) => btn.classList.remove("active"));
+            this.classList.add("active");
+
+            const filterValue = this.getAttribute("data-filter");
+
+            portfolioItems.forEach((item) => {
+              if (filterValue === "all" || item.getAttribute("data-category") === filterValue) {
+                item.style.display = "block";
+              } else {
+                item.style.display = "none";
+              }
+            });
+          });
+        });
+
+        // Smooth scrolling for nav links
+        document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+          anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+
+            const targetId = this.getAttribute("href");
+            const targetElement = document.querySelector(targetId);
+
+            window.scrollTo({
+              top: targetElement.offsetTop - 70,
+              behavior: "smooth",
+            });
+          });
+        });
+      });
+    </script>
+  </body>
+</html>
